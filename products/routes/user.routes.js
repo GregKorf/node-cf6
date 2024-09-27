@@ -7,4 +7,10 @@ router.get('/', userController.findAll);
 
 router.get('/:username', userController.findOne);
 
-module.exports = router
+router.post('/', userController.create);
+
+router.patch('/:username', userController.update);
+
+router.delete('/:username', userController.delete)
+
+module.exports = router;
