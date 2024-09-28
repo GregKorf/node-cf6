@@ -94,3 +94,88 @@ exports.deleteUserProduct = async(req,res) => {
     }
 
 }
+
+exports.stats1 = async(req,res) => {
+    console.log("For all users sum by product abd count")
+
+    try {
+        const result = await User.aggregate([
+            {
+                    $unwind: "$products"
+            },
+            {
+                $project:{
+                    _id: 1,
+                    username: 1,
+                    products: 1
+                }
+            },
+            {
+                $group: {
+                    _id:{
+                        username: "$username",
+                        products: "$products.product"
+                    },
+                    totalAmount: {
+                        $sum: {
+                            $multiply: ["$products.cost", "$products.quantity"]
+                        }
+                    },
+                    count: {$sum: 1}
+                }
+            },
+            {
+                $sort: {"_id.username": 1 , "_id.product": 1}
+            }
+        ])
+
+        res.json({status: true, data: result})
+    } catch (err) {
+        res.json({status: false, data: err})
+    }
+}
+
+exports.stats2 = async(req,res) => {
+    const username = req.params.username;
+
+    console.log("Stats2 on username", username)
+
+    try {
+        const result = await User.aggregate([
+            {
+                $match: {
+                    username: username
+                }
+            },
+            {
+                    $unwind: "$products"
+            },
+            {
+                $project:{
+                    products: 1,
+                    _id: 0
+                }
+            },
+            {
+                $group: {
+                    _id:{
+                        product: "$products.product"
+                    },
+                    totalAmount: {
+                        $sum: {
+                            $multiply: ["$products.cost", "$products.quantity"]
+                        }
+                    },
+                    count: {$sum: 1}
+                }
+            },
+            {
+                $sort: { "_id.product": 1}
+            }
+        ])
+
+        res.json({status: true, data: result})
+    } catch (err) {
+        res.json({status: false, data: err})
+    }
+}
