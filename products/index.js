@@ -6,8 +6,18 @@ const mongoose = require('mongoose');
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger');
+const cors = require('cors');
+
+// give licence to specific server or every server with origin: "*" to connect to my back end
+app.use(cors({
+    // origin: "*"
+    origin: ['http://localhost:8000', 'http://www.aueb.gr']
+}))
 
 app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+
+app.use('/', express.static('files')); // open a index html in folder files
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(
@@ -32,6 +42,4 @@ app.use(
     swaggerUi.setup(swaggerDocument.options)
 )
 
-app.listen(port, () => {
-    console.log("Server is up");
-})
+module.exports = app

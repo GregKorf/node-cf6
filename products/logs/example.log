@@ -1,0 +1,17 @@
+
+{"label":"winston custom format","level":"info","message":"success in reading all users","timestamp":"03-10-2024 19:06:27"}
+{"label":"winston custom format","level":"debug","message":"Error in reading all users","timestamp":"03-10-2024 19:06:27"}
+{"label":"winston custom format","level":"info","message":"success in reading all users","timestamp":"03-10-2024 19:11:13"}
+{"label":"winston custom format","level":"error","message":"Error in reading all users","timestamp":"03-10-2024 19:11:13"}
+{"label":"winston custom format","level":"info","message":"success in reading all users","timestamp":"03-10-2024 19:34:38"}
+{"label":"winston custom format","level":"error","message":"Error in reading all users","timestamp":"03-10-2024 19:34:38"}
+{"label":"winston custom format","level":"info","message":"success in reading all users","timestamp":"03-10-2024 19:34:46"}
+{"label":"winston custom format","level":"error","message":"Error in reading all users","timestamp":"03-10-2024 19:34:46"}
+{"label":"winston custom format","level":"info","message":"success in reading all users","timestamp":"03-10-2024 19:35:07"}
+{"label":"winston custom format","level":"error","message":"Error in reading all users","timestamp":"03-10-2024 19:35:07"}
+{"label":"winston custom format","level":"info","message":"success in reading all users","timestamp":"03-10-2024 19:35:08"}
+{"label":"winston custom format","level":"error","message":"Error in reading all users","timestamp":"03-10-2024 19:35:08"}
+{"label":"winston custom format","level":"info","message":"success in reading all users","timestamp":"03-10-2024 19:35:22"}
+{"label":"winston custom format","level":"error","message":"Error in reading all users","timestamp":"03-10-2024 19:35:22"}
+{"label":"winston custom format","level":"info","message":"success in reading all users","timestamp":"03-10-2024 19:35:54"}
+{"label":"winston custom format","level":"error","message":"Error in reading all users","timestamp":"03-10-2024 19:35:54"}
