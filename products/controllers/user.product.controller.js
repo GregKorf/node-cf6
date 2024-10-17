@@ -53,6 +53,11 @@ exports.updateUserProduct = async (req, res) => {
     console.log(product_id);
     console.log(product_quantity);
 
+    console.log("Update product quantity for user", username);
+    console.log("Product ID:", product_id);
+    console.log("Request body:", req.body);
+    console.log("Product quantity:", product_quantity);
+
     try {
         const result = await User.updateOne(
             { username: username, "products._id": product_id },

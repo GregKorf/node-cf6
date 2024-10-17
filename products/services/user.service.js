@@ -12,4 +12,18 @@ async function findLastInsertedUser(){
     }
 }
 
-module.exports = {findLastInsertedUser}
+async function findUsersProducts(username, id){
+    console.log("Find the product of the user");
+
+    try {
+        const result = await User.findOne(
+        {username: 'user4'}, 
+        {username:1, products:1})
+
+        return result;
+    } catch (err) {
+        console.log("Problem in finding the product")
+    }
+}
+
+module.exports = {findLastInsertedUser, findUsersProducts}

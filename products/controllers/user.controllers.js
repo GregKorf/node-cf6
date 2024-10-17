@@ -69,7 +69,8 @@ exports.update = async(req,res) => {
             {
                 username: username
             },
-            updateUser
+            updateUser,
+            { new: true}
         )
         res.json({status: true, data: result})
     } catch (err) {
